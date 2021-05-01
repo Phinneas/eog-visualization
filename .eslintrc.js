@@ -22,10 +22,21 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  
   plugins: ['react'],
   rules: {
-    // quotes: ['error', 'double'],
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": ["off"],
     '@typescript-eslint/no-angle-bracket-type-assertion': 'off',
-    "@typescript-eslint/camelcase": "off"
+    "@typescript-eslint/camelcase": "off",
+    "import/no-extraneous-dependencies": [
+      "error", {
+         "devDependencies": false, 
+         "optionalDependencies": false, 
+         "peerDependencies": false, 
+         "packageDir": "./"
+      }
+  ]
   },
+  
 };
