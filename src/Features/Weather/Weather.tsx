@@ -32,7 +32,7 @@ const getWeather = (state: IState) => {
 
 const Weather = () => {
   const getLocation = useGeolocation();
-  // Default to houston
+  // Default to Houston
   const latLong = {
     latitude: getLocation.latitude || 29.7604,
     longitude: getLocation.longitude || -95.3698,
