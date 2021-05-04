@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Provider, createClient, useQuery } from 'urql';
+import { Provider as UrqlProvider, createClient, useQuery } from 'urql';
 import { useGeolocation } from 'react-use';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { actions } from './reducer';
 import Chip from '../../components/Chip';
 import { IState } from '../../store';
 
+// Provider from 'urql' renamed UrqlProvider to keep separate from redux provider
 const client = createClient({
   url: 'https://react.eogresources.com/graphql',
 });
@@ -62,10 +63,12 @@ const Weather = () => {
   return <Chip label={`Weather in ${locationName}: ${description} and ${temperatureinFahrenheit}°`} />;
 };
 
+
+
 export default () => {
   return (
-    <Provider value={client}>
+    <UrqlProvider value={client}>
       <Weather />
-    </Provider>
+    </UrqlProvider>
   );
 };
