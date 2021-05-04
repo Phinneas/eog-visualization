@@ -36,11 +36,8 @@ return <Card className={classes.root}>
               strokeWidth={2}
             />
     </LineChart>
-
 </Card>
 }
  
-
-
  export default Charts;
 
