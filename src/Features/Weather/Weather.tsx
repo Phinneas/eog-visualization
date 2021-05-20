@@ -15,19 +15,20 @@ const client = createClient({
 const query = `
 query($latLong: WeatherQuery!) {
   getWeatherForLocation(latLong: $latLong) {
-    description
     locationName
-    temperatureinFahrenheit
+    description
+    temperatureinCelsius
   }
 }
 `;
 
 const getWeather = (state: IState) => {
-  const { description, locationName, temperatureinFahrenheit  } = state.weather;
+  const { locationName, description, temperatureinFahrenheit,  } = state.weather;
   return {
-    description,
     locationName,
+    description,
     temperatureinFahrenheit,
+   
   };
 };
 
@@ -39,7 +40,7 @@ const Weather = () => {
     longitude: getLocation.longitude || -95.3698,
   };
   const dispatch = useDispatch();
-  const { temperatureinFahrenheit, description, locationName } = useSelector(getWeather);
+  const { locationName, description, temperatureinFahrenheit,  } = useSelector(getWeather);
 
   const [result] = useQuery({
     query,

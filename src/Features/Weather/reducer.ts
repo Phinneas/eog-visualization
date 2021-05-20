@@ -4,6 +4,10 @@ export type WeatherForLocation = {
   description: string;
   locationName: string;
   temperatureinCelsius: number;
+  at: number;
+  metric: string;
+  value: number;
+  unit: string;
 };
 
 export type ApiErrorAction = {
@@ -15,6 +19,10 @@ const initialState = {
   temperatureinFahrenheit: 0,
   description: '',
   locationName: '',
+  at: 0,
+  metric: '',
+  value: 0,
+  unit: ''
 };
 
 const toF = (c: number) => (c * 9) / 5 + 32;

@@ -14,7 +14,7 @@ const client = createClient({
 
 const measurement = `
 subscription newMeasurement {
-  newMeasurement: Measurement {
+  Measurement: newMeasurement {
     metric
     at
     unit
@@ -24,6 +24,7 @@ subscription newMeasurement {
 `;
 
 const Chart = () => {
+  // const timeSeparator = 1300;
   const getLocation = useGeolocation();
   // Default to Houston
   const latLong = {
@@ -32,18 +33,28 @@ const Chart = () => {
   };
   const dispatch = useDispatch();
   const [result] = useSubscription({
-    query: measurement
+    query: measurement   
     }  
   );
 
   const getWeather = (state: IState) => {
-    const { temperatureinFahrenheit } = state.weather;
+    const { metric, at, unit, value  } = state.weather;
     return {
-      temperatureinFahrenheit,
+     metric,
+     at,
+     unit,
+     value
      
     };
   };
-  const { temperatureinFahrenheit  } = useSelector(getWeather);
+  const { metric } = useSelector(getWeather);
+  // const getWeather = (state: IState) => {
+  //   const { temperatureinFahrenheit } = state.weather;
+  //   return {
+  //     temperatureinFahrenheit
+  //   };
+  // };
+  // const { temperatureinFahrenheit  } = useSelector(getWeather);
 
   const { fetching, data, error } = result;
   useEffect(() => {
@@ -58,7 +69,7 @@ const Chart = () => {
 
   if (fetching) return <LinearProgress />;
 
-  return <Chart {...data`${temperatureinFahrenheit}°`}/>
+  return <Chart {...data`${metric}°`}/>
 
 };
 
