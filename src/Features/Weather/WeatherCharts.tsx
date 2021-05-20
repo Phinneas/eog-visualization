@@ -13,15 +13,16 @@ const client = createClient({
 });
 
 const measurement = `
-subscription($subscription: MeasurementQuery!) {
-  newMeasurement( subscription: $subscription) {
+subscription newMeasurement {
+  newMeasurement: Measurement {
     metric
     at
-    value
     unit
+    value
   }
 }
-`
+`;
+
 const Chart = () => {
   const getLocation = useGeolocation();
   // Default to Houston
