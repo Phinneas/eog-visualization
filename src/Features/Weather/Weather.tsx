@@ -17,17 +17,17 @@ query($latLong: WeatherQuery!) {
   getWeatherForLocation(latLong: $latLong) {
     description
     locationName
-    temperatureinCelsius
+    temperatureinFahrenheit
   }
 }
 `;
 
 const getWeather = (state: IState) => {
-  const { temperatureinFahrenheit, description, locationName } = state.weather;
+  const { description, locationName, temperatureinFahrenheit  } = state.weather;
   return {
-    temperatureinFahrenheit,
     description,
     locationName,
+    temperatureinFahrenheit,
   };
 };
 
