@@ -3,8 +3,8 @@ import { useDispatch, useSelector} from 'react-redux';
 import { Provider as UrqlProvider, createClient, useSubscription } from 'urql';
 import { useGeolocation } from 'react-use';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { actions } from '../Features/Weather/reducer';
-import { IState } from '../store/';
+import { actions } from './reducer';
+import { IState } from '../../store';
 
 // Provider from 'urql' renamed Urql Provider to keep redux provider understanding separate
 

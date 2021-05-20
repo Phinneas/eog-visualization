@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import CardHeader from './CardHeader';
-import Chart from './WeatherCharts';
+import Chart from '../Features/Weather/WeatherCharts';
 
 const useStyles = makeStyles({
   card: {

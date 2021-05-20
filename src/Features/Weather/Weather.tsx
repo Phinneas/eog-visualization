@@ -22,6 +22,17 @@ query($latLong: WeatherQuery!) {
 }
 `;
 
+const measurement = `
+subscription($subscription: MeasurementQuery!) {
+  newMeasurement( subscription: $subscription) {
+    metric
+    at
+    value
+    unit
+  }
+}
+`;
+
 const getWeather = (state: IState) => {
   const { description, locationName, temperatureinFahrenheit  } = state.weather;
   return {

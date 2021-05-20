@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Line, LineChart, XAxis, YAxis, CartesianGrid } from 'recharts';
-import Weather from './WeatherCharts';
+import Weather from '../Features/Weather/WeatherCharts';
 import { Card } from '@material-ui/core';
 
 const useStyles = makeStyles({
