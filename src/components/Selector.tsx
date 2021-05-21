@@ -39,4 +39,3 @@ export const Selector: React.FC = () => {
 
   return <Select name="metricSelect" options={options} isMulti closeMenuOnSelect={false} onChange={onChange} />;
 };
-
