@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // Provider from 'urql' renamed UrqlProvider to keep separate from redux provider
-import { Provider as UrqlProvider, createClient, fetchExchange, useQuery } from 'urql';
+import { Provider as UrqlProvider, createClient, fetchExchange, useQuery, CombinedError } from 'urql';
 import { cacheExchange } from '@urql/exchange-graphcache';
 import { useGeolocation } from 'react-use';
 import LinearProgress from '@material-ui/core/LinearProgress';
