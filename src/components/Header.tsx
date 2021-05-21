@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default () => {
+export const Header: React.FC = () => {
   const classes = useStyles();
 
   const name = "Chester's";

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Line, LineChart, XAxis, YAxis, CartesianGrid } from 'recharts';
-import Weather from '../Features/Weather/WeatherCharts';
+import Weather from '../Features/Weather/Weather';
 import { Card } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 const data = [{ Weather }]
 
-const Charts: React.FC = ()  => {
+export const Charts: React.FC = ()  => {
   const classes  = useStyles();
 
 return <Card className={classes.root}>
@@ -38,6 +38,3 @@ return <Card className={classes.root}>
     </LineChart>
 </Card>
 }
- 
- export default Charts;
-
