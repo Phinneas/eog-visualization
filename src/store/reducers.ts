@@ -1,7 +1,6 @@
 import { reducer as weatherReducer } from '../Features/Weather/reducer';
-import { reducer as metricsReducer } from '../Features/Charts/reducer';
-
+import { reducer as chartsReducer } from '../Features/Charts/reducer';
 export default {
   weather: weatherReducer,
-  metrics: metricsReducer
+  charts: chartsReducer
 };

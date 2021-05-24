@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // Provider from 'urql' renamed UrqlProvider to keep separate from redux provider
-import { Provider as UrqlProvider, createClient, fetchExchange, useQuery, CombinedError } from 'urql';
-import { cacheExchange } from '@urql/exchange-graphcache';
+import { Provider as UrqlProvider, createClient, useQuery } from 'urql';
 import { useGeolocation } from 'react-use';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { actions } from './reducer';
@@ -11,7 +10,6 @@ import { IState } from '../../store';
 
 export const client = createClient({
   url: 'https://react.eogresources.com/graphql',
-  exchanges: [ cacheExchange({}), fetchExchange],
 });
 
 const query = `

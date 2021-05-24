@@ -44,7 +44,7 @@ const initialState: MetricsType = {
 
 const slice = createSlice({
   initialState,
-  name: 'metricsReducer',
+  name: 'charts',
   reducers: {
     singleMetricsDataReceived: (state, action: PayloadAction<MetricsWithLatest>) => {
       const { metrics, latestValue } = action.payload;

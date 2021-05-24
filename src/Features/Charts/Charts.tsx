@@ -13,7 +13,7 @@ const subscriptionClient = new SubscriptionClient(`ws://react.eogresources.com/g
 });
 
 export const client = createClient({
-  url: `https://react.eogresources.com/graphql`,
+  url: 'https://react.eogresources.com/graphql',
   exchanges: [
     ...defaultExchanges,
     subscriptionExchange({
@@ -22,17 +22,17 @@ export const client = createClient({
   ],
 });
 
-// export default () => {
-//   return (
-//     <Provider value={client}>
-//       <Metrics />
-//     </Provider>
-//   );
-// };
+export default () => {
+  return (
+    <Provider value={client}>
+      <Charts />
+    </Provider>
+  );
+};
 
-const getSelectedMetrics = (state: IState) => state.metrics.selectedMetrics;
+const getSelectedMetrics = (state: IState) => state.charts.selectedMetrics;
 
-export const Charts = () => {
+const Charts = () => {
   const selectedMetrics = useSelector(getSelectedMetrics);
   return (
     <Grid container>

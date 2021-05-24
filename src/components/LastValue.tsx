@@ -46,7 +46,7 @@ const ValueCard: React.FC<IValueCardProps> = ({ metricName, currentValue }) => {
 };
 
 const getLatestValues = (state: IState) => {
-  return state.metrics.latestValue;
+  return state.charts.latestValue;
 };
 
 interface NewMeasurement {

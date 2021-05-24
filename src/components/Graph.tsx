@@ -14,10 +14,10 @@ const unitAdder = (value: number): string => {
     }
 }
 
-const getAxisID = (metric: string) => metric.toLowerCase().endsWith('pressure') ? 1 : (metric.toLowerCase().endsWith('temp') ? 2 : 0);
+const getAxisID = (metric: string) =>  (metric.toLowerCase().endsWith('temp'));
 
 const getMetrics = (state: IState) => {
-    const { metrics } = state.metrics;
+    const { metrics } = state.charts;
     return metrics;
 }
 
@@ -44,9 +44,7 @@ export const Graph: React.FC<IChartProps> = ({ selectedMetrics }) => {
     const data = Object.keys(metrics).map(key => metrics[key])
 
     const units = {
-        percentage: selectedMetrics.some((m: string) => getAxisID(m) === 0),
-        pressure: selectedMetrics.some((m: string) => getAxisID(m) === 1),
-        temperature: selectedMetrics.some((m: string) => getAxisID(m) === 2)
+        temperature: selectedMetrics.some((m: string) => getAxisID(m))
     }
 
     return <div className={classes.container}>
@@ -60,7 +58,7 @@ export const Graph: React.FC<IChartProps> = ({ selectedMetrics }) => {
                     selectedMetrics.map((metric, index) => {
                         return <Line
                             key={metric}
-                            yAxisId={getAxisID(metric)}
+                            // yAxisId={getAxisID(metric)}
                             dataKey={metric}
                             stroke={lineColors[index]}
                             dot

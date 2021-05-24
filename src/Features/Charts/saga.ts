@@ -1,14 +1,14 @@
-import { takeEvery, put, fork, select } from 'redux-saga/effects';
+import {takeEvery, put, fork, select } from 'redux-saga/effects';
 import { actions, FetchMetricData, IMetric } from './reducer';
 import { PayloadAction } from 'redux-starter-kit';
 import { IState } from '../../store';
 import { client } from './Charts';
 
-const getMetrics = (state: IState) => state.metrics.metrics;
+const getMetrics = (state: IState) => state.charts.metrics;
 
 function* normalizeData(action: PayloadAction<IMetric>) {
   const { metric, at, value } = action.payload;
-  const getLatestvalue = (state: IState) => state.metrics.latestValue;
+  const getLatestvalue = (state: IState) => state.charts.latestValue;
   let data = yield select(getMetrics);
   const oldlatestValue = yield select(getLatestvalue);
   const hours = new Date(at).getHours() % 12 || 12;

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Select, { OptionTypeBase, OptionsType, ValueType, ActionMeta } from 'react-select';
+import Select, { ActionMeta, OptionTypeBase, OptionsType, ValueType,  } from 'react-select';
 import { useQuery } from 'urql';
 import { useDispatch } from 'react-redux';
 import { actions } from '../Features/Charts/reducer';
 
 const query = `
     query {
-        getMetrics
+        getMeasurement
     }
 `;
+// getWeatherForLocatiom
 
 interface Option extends OptionTypeBase {
   label: string;
@@ -25,7 +26,7 @@ export const Selector: React.FC = () => {
 
   const onChange = (selected: ValueType<Option, true>, action: ActionMeta<Option>) => {
     const selectedMetrics = selected ? selected.map((item: Option) => item.value) : [];
-    dispatch(actions.metricNamesSelected({ selectedMetrics, metricName: action.option && action.option.value }));
+    dispatch(actions.metricNamesSelected({ selectedMetrics, metricName: action.name }));
   };
 
   useEffect(() => {
