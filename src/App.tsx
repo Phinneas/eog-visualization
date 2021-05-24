@@ -7,7 +7,7 @@ import createStore from './store';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from './components/Header';
 import { Wrapper } from './components/Wrapper';
-import Charts  from './Features/Charts/Charts';
+import Charts from './Features/Charts/Charts';
 
 const store = createStore();
 const theme = createMuiTheme({

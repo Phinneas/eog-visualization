@@ -14,7 +14,7 @@ const unitAdder = (value: number): string => {
     }
 }
 
-const getAxisID = (metric: string) =>  (metric.toLowerCase().endsWith('temp'));
+const getAxisID = (metric: string) => (metric.toLowerCase().endsWith('')) ? 1 : (metric.toLowerCase().endsWith('temp') ? 2 : 0);
 
 const getMetrics = (state: IState) => {
     const { metrics } = state.charts;
@@ -44,7 +44,7 @@ export const Graph: React.FC<IChartProps> = ({ selectedMetrics }) => {
     const data = Object.keys(metrics).map(key => metrics[key])
 
     const units = {
-        temperature: selectedMetrics.some((m: string) => getAxisID(m))
+        temperature: selectedMetrics.some((m: string) => getAxisID(m) === 2)
     }
 
     return <div className={classes.container}>
@@ -58,7 +58,7 @@ export const Graph: React.FC<IChartProps> = ({ selectedMetrics }) => {
                     selectedMetrics.map((metric, index) => {
                         return <Line
                             key={metric}
-                            // yAxisId={getAxisID(metric)}
+                            yAxisId={getAxisID(metric)}
                             dataKey={metric}
                             stroke={lineColors[index]}
                             dot

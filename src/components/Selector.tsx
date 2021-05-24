@@ -5,11 +5,14 @@ import { useDispatch } from 'react-redux';
 import { actions } from '../Features/Charts/reducer';
 
 const query = `
-    query {
-        getMeasurement
-    }
+query($latLong: WeatherQuery!) {
+  getWeatherForLocation(latLong: $latLong) {
+    locationName
+    description
+    temperatureinCelsius
+  }
+}
 `;
-// getWeatherForLocatiom
 
 interface Option extends OptionTypeBase {
   label: string;
@@ -34,8 +37,8 @@ export const Selector: React.FC = () => {
       return;
     }
     if (!data) return;
-    const { getMetrics } = data;
-    setOptions(getMetrics.map((option: string) => ({ label: option, value: option })));
+    const { getWeatherForLocation } = data;
+    setOptions(getWeatherForLocation.map((option: string) => ({ label: option, value: option })));
   }, [dispatch, data, error]);
 
   return <Select name="metricSelect" options={options} isMulti closeMenuOnSelect={false} onChange={onChange} />;
